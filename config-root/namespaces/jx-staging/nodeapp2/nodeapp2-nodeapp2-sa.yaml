@@ -1,0 +1,10 @@
+# Source: nodeapp2/templates/sa.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: nodeapp2-nodeapp2
+  annotations:
+    meta.helm.sh/release-name: 'nodeapp2'
+  namespace: jx-staging
+  labels:
+    gitops.jenkins-x.io/pipeline: 'namespaces'
