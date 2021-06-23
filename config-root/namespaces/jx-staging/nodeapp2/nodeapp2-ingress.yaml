@@ -1,0 +1,22 @@
+# Source: nodeapp2/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    meta.helm.sh/release-name: 'nodeapp2'
+  name: nodeapp2
+  namespace: jx-staging
+  labels:
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+spec:
+  rules:
+    - http:
+        paths:
+          - pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nodeapp2
+                port:
+                  number: 80
+      host: nodeapp2-jx-staging.20.204.30.194.nip.io
