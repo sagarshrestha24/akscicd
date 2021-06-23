@@ -41,7 +41,7 @@ data:
         - needs-rebase
         repos:
         - sagarshrestha24/akscicd
-      target_url: http://lighthouse-jx./merge/status
+      target_url: http://lighthouse-jx.20.204.30.194.nip.io/merge/status
 kind: ConfigMap
 metadata:
   creationTimestamp: null
