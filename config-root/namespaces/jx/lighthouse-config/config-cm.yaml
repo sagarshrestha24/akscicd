@@ -8,6 +8,7 @@ data:
     in_repo_config:
       enabled:
         sagarshrestha24/akscicd: true
+        sagarshrestha24/nodeapp1: true
     plank: {}
     pod_namespace: jx
     prowjob_namespace: jx
@@ -20,6 +21,7 @@ data:
         skip-unknown-contexts: false
       merge_method:
         sagarshrestha24/akscicd: merge
+        sagarshrestha24/nodeapp1: merge
       queries:
       - labels:
         - approved
@@ -31,6 +33,7 @@ data:
         - needs-rebase
         repos:
         - sagarshrestha24/akscicd
+        - sagarshrestha24/nodeapp1
       - labels:
         - updatebot
         missingLabels:
@@ -41,6 +44,7 @@ data:
         - needs-rebase
         repos:
         - sagarshrestha24/akscicd
+        - sagarshrestha24/nodeapp1
       target_url: http://lighthouse-jx.20.204.30.194.nip.io/merge/status
 kind: ConfigMap
 metadata:
