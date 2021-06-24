@@ -8,6 +8,10 @@ data:
       require_self_approval: true
     - lgtm_acts_as_approve: true
       repos:
+      - sagarshrestha24/akscicd
+      require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
       - sagarshrestha24/nodeapp1
       require_self_approval: true
     - lgtm_acts_as_approve: true
@@ -102,6 +106,9 @@ data:
       xl: 0
       xxl: 0
     triggers:
+    - repos:
+      - sagarshrestha24/akscicd
+      trusted_org: todo
     - repos:
       - sagarshrestha24/akscicd
       trusted_org: todo
