@@ -1,0 +1,18 @@
+# Source: jenkins/templates/jcasc-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jenkins-jenkins-config-jxsetup
+  namespace: myjenkins
+  labels:
+    "app.kubernetes.io/name": jenkins
+    "helm.sh/chart": "jenkins-3.4.0"
+    "app.kubernetes.io/managed-by": "Helm"
+    "app.kubernetes.io/instance": "jenkins"
+    "app.kubernetes.io/component": "jenkins-controller"
+    jenkins-jenkins-config: "true"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  annotations:
+    meta.helm.sh/release-name: 'jenkins'
+data:
+  jxsetup.yaml: "jobs:\n  - script: |\n      // from template: versionStream/jenkins/templates/folder.gotmpl\n      folder('sagarshrestha24')\n                    \n      // from template: versionStream/jenkins/templates/job.gotmpl\n      multibranchPipelineJob('sagarshrestha24/jenkins-pipeline-examples') {\n          branchSources {\n              github {\n                  id('sagarshrestha24-jenkins-pipeline-examples')\n                  scanCredentialsId('tekton-git')\n                  repoOwner('sagarshrestha24')\n                  repository('jenkins-pipeline-examples')\n              }\n          }\n          configure { node ->\n            def traits = node / 'sources' / 'data' / 'jenkins.branch.BranchSource' / 'source' / 'traits'\n            traits << 'org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait' {\n              strategyId(1)\n            }\n            traits << 'org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait' {\n              strategyId(1)\n            }\n            traits << 'org.jenkinsci.plugins.github__branch__source.ForkPullRequestDiscoveryTrait' {\n              strategyId(1)\n              trust(class: 'org.jenkinsci.plugins.github_branch_source.ForkPullRequestDiscoveryTrait$TrustPermission')\n            }\n            traits << 'jenkins.scm.impl.trait.WildcardSCMHeadFilterTrait' {\n              includes('main master PR-*')\n              excludes()\n            }\n          }\n      }"
