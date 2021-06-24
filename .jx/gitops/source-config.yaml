@@ -11,6 +11,14 @@ spec:
     - name: nodeapp1
     - name: nodeapp2
     scheduler: in-repo
+  jenkinsServers:
+  - groups:
+    - owner: sagarshrestha24
+      provider: https://github.com
+      providerKind: github
+      repositories:
+      - name: jenkins-pipeline-examples
+    server: myjenkins
   slack:
     channel: '#jenkins-x-pipelines'
     kind: failureOrNextSuccess
