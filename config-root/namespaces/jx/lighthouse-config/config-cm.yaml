@@ -8,6 +8,7 @@ data:
     in_repo_config:
       enabled:
         sagarshrestha24/akscicd: true
+        sagarshrestha24/jenkins-pipeline-examples: true
         sagarshrestha24/nodeapp1: true
         sagarshrestha24/nodeapp2: true
     plank: {}
@@ -22,6 +23,7 @@ data:
         skip-unknown-contexts: false
       merge_method:
         sagarshrestha24/akscicd: merge
+        sagarshrestha24/jenkins-pipeline-examples: merge
         sagarshrestha24/nodeapp1: merge
         sagarshrestha24/nodeapp2: merge
       queries:
@@ -35,6 +37,7 @@ data:
         - needs-rebase
         repos:
         - sagarshrestha24/akscicd
+        - sagarshrestha24/jenkins-pipeline-examples
         - sagarshrestha24/nodeapp1
         - sagarshrestha24/nodeapp2
       - labels:
@@ -47,6 +50,7 @@ data:
         - needs-rebase
         repos:
         - sagarshrestha24/akscicd
+        - sagarshrestha24/jenkins-pipeline-examples
         - sagarshrestha24/nodeapp1
         - sagarshrestha24/nodeapp2
       target_url: http://lighthouse-jx.20.204.30.194.nip.io/merge/status

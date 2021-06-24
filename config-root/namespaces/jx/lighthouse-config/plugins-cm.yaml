@@ -12,6 +12,10 @@ data:
       require_self_approval: true
     - lgtm_acts_as_approve: true
       repos:
+      - sagarshrestha24/jenkins-pipeline-examples
+      require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
       - sagarshrestha24/nodeapp1
       require_self_approval: true
     - lgtm_acts_as_approve: true
@@ -33,6 +37,11 @@ data:
         name: cd-indicators
       - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
         name: lighthouse-webui-plugin
+      sagarshrestha24/jenkins-pipeline-examples:
+      - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
+        name: cd-indicators
+      - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
+        name: lighthouse-webui-plugin
       sagarshrestha24/nodeapp1:
       - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
         name: cd-indicators
@@ -50,6 +59,22 @@ data:
     plugins:
       sagarshrestha24/akscicd:
       - config-updater
+      - approve
+      - assign
+      - blunderbuss
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - heart
+      - cat
+      - dog
+      - pony
+      sagarshrestha24/jenkins-pipeline-examples:
       - approve
       - assign
       - blunderbuss
@@ -111,6 +136,9 @@ data:
       trusted_org: todo
     - repos:
       - sagarshrestha24/akscicd
+      trusted_org: todo
+    - repos:
+      - sagarshrestha24/jenkins-pipeline-examples
       trusted_org: todo
     - repos:
       - sagarshrestha24/nodeapp1
