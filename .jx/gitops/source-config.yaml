@@ -9,6 +9,7 @@ spec:
     providerKind: github
     repositories:
     - name: akscicd
+    - name: jenkins-pipeline-examples
     - name: nodeapp1
     - name: nodeapp2
     scheduler: in-repo
